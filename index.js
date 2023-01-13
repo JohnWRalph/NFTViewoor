@@ -1,18 +1,30 @@
 
 // const { Network } = require('@alch/alchemy-sdk');
 const getCounterPartyWalletBalances = require("./getCounterPartyWalletBalances");
+const getSolanaWalletBalances = require("./getSolanaWalletBalances");
 
 const submitButton = document.getElementById("submitButton");
+const solanaSubmitButton = document.getElementById("solanaSubmitButton");
 var modal = document.getElementById("myModal");
+
+
 modal.style.display = "block";
 modal.classList.toggle('close');
 console.log("modal:", modal.outerHTML);
+let solanaAddressInput;
+
 submitButton.addEventListener("click", function () {
     const addressinput = document.getElementById("address-input");
     // document.getElementById("address").innerHTML = addressinput[0];
     getCounterPartyWalletBalances(addressinput);
 });
 
+solanaSubmitButton.addEventListener("click", function () {
+    solanaAddressInput = document.getElementById("solana-address-input");
+ 
+    // document.getElementById("address").innerHTML = addressinput[0];
+    getSolanaWalletBalances(solanaAddressInput);
+});
 // Get the modal
 
 var btn = document.getElementById("myBtn");
